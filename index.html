@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>China Brand</title>
+  <meta name="description" content="China Brand — нейросеть подбирает китайское название бренда с учётом культуры и ниши.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500&family=PT+Sans:wght@400;700&family=PT+Sans+Caption:wght@700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-screen="about">
+  <header class="site-header">
+    <a class="site-logo" href="#about" aria-label="China Brand — на главную">CHINA BRAND</a>
+    <nav class="user-nav" aria-label="Меню пользователя">
+      <a class="plan-badge plan-badge--subscribe" href="#pricing">Подписка</a>
+      <a class="plan-badge plan-badge--change" href="#pricing">Сменить план</a>
+      <a class="user-nav__link user-nav__link--product" href="#more">О продукте</a>
+      <button class="user-avatar" type="button" aria-label="Аккаунт" data-action="account">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="12.5" r="5.5" fill="#fff"/><path d="M6 28c1.5-5.2 5.4-8 10-8s8.5 2.8 10 8" fill="#fff"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    <!-- Экран «О проекте» -->
+    <section class="screen" id="about" data-screen="about" aria-label="О проекте">
+      <div class="landing container">
+    <section class="landing__intro" aria-labelledby="landing-title">
+      <h1 class="landing__title" id="landing-title">Адаптируйте ваш бренд <br>для рынка Китая за пару кликов</h1>
+      <figure class="brand-banner">
+        <img class="brand-banner__image" src="img/brand-banner.png" width="1230" height="377" alt="Китайское название BMW — 宝马, написанное кистью">
+      </figure>
+    </section>
+
+    <section class="landing__intro" aria-labelledby="landing-lead">
+      <h2 class="landing__lead" id="landing-lead">Нейросеть создаст идеальное китайское название с учетом культуры и ниши</h2>
+    </section>
+
+    <figure class="product-preview">
+      <img class="product-preview__image" src="img/product-preview.png" width="1230" height="584" alt="Экран сервиса: результат адаптации названия BMW для сферы cars" loading="lazy">
+    </figure>
+
+    <div class="cta-group">
+      <a class="button button--secondary button--large" href="#more">Узнать больше</a>
+      <a class="button button--primary button--large" href="#app" data-action="start">Адаптировать бренд</a>
+    </div>
+  </div>
+    </section>
+
+    <!-- Экран «Узнать больше» -->
+    <section class="screen" id="more" data-screen="more" aria-label="О продукте" hidden>
+      <aside class="disclaimer-banner" role="note" data-dismissible>
+    <svg class="disclaimer-banner__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.9 3.5l8.6 15A1 1 0 0 1 20.6 20H3.4a1 1 0 0 1-.9-1.5l8.6-15a1 1 0 0 1 1.8 0zM11 16v2h2v-2zm0-7v5h2V9z" fill="currentColor"/></svg>
+    <p class="disclaimer-banner__text">Результат генерации не заменяет проверку у носителя языка и регистрацию товарного знака</p>
+    <button class="disclaimer-banner__close" type="button" aria-label="Скрыть предупреждение" data-dismiss>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 10.6l5-5 1.4 1.4-5 5 5 5-1.4 1.4-5-5-5 5L5.6 17l5-5-5-5L7 5.6z" fill="currentColor"/></svg>
+    </button>
+  </aside>
+      <div class="product-details container">
+    <section class="how-it-works" aria-labelledby="how-title">
+      <h1 class="section-title" id="how-title">Нейросеть анализирует тысячи успешных кейсов адаптации брендов в Китае</h1>
+      <ol class="feature-list">
+        <li class="feature-card">
+          <span class="feature-card__number" aria-hidden="true">1</span>
+          <p class="feature-card__text">Подбираем иероглифы, которые передают суть вашего бренда, а&nbsp;не&nbsp;просто звучание</p>
+        </li>
+        <li class="feature-card">
+          <span class="feature-card__number" aria-hidden="true">2</span>
+          <p class="feature-card__text">Для косметики, технологий, еды или моды — подбираем релевантные ассоциации</p>
+        </li>
+        <li class="feature-card">
+          <span class="feature-card__number" aria-hidden="true">3</span>
+          <p class="feature-card__text">Исключаем негативные культурные и исторические коннотации</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="audience" aria-labelledby="audience-title">
+      <h2 class="section-title" id="audience-title">ChinaBrand подходит для</h2>
+      <ul class="audience-list">
+        <li class="audience-card">
+          <div class="audience-card__body">
+            <h3 class="audience-card__title">Производителей и брендов</h3>
+            <p class="audience-card__text">Выходите на китайский рынок с правильным позиционированием</p>
+          </div>
+          <img class="audience-card__illustration" src="img/truck.png" width="218" height="145" alt="" loading="lazy">
+        </li>
+        <li class="audience-card">
+          <div class="audience-card__body">
+            <h3 class="audience-card__title">Брендинговых агентств</h3>
+            <p class="audience-card__text">Предлагайте профессиональную адаптацию названий</p>
+          </div>
+          <img class="audience-card__illustration" src="img/palette.png" width="200" height="167" alt="" loading="lazy">
+        </li>
+        <li class="audience-card">
+          <div class="audience-card__body">
+            <h3 class="audience-card__title">Интернет-магазинов</h3>
+            <p class="audience-card__text">Локализуйте ассортимент для китайских маркетплейсов</p>
+          </div>
+          <img class="audience-card__illustration" src="img/shopping-bag.png" width="146" height="190" alt="" loading="lazy">
+        </li>
+        <li class="audience-card">
+          <div class="audience-card__body">
+            <h3 class="audience-card__title">Предпринимателей</h3>
+            <p class="audience-card__text">Запустите бренд в Китае без дорогих консультантов</p>
+          </div>
+          <img class="audience-card__illustration" src="img/wallet.png" width="162" height="220" alt="" loading="lazy">
+        </li>
+      </ul>
+      <a class="button button--primary button--large" href="#pricing" data-action="start">Попробовать с подпиской</a>
+    </section>
+  </div>
+    </section>
+
+    <!-- Экран «Тарифы» -->
+    <section class="screen" id="pricing" data-screen="pricing" aria-label="Тарифы" hidden>
+      <div class="pricing container">
+    <section class="pricing__plans" aria-labelledby="pricing-title">
+      <h1 class="pricing__title" id="pricing-title">Китайское название для вашего бренда за пару кликов</h1>
+      <div class="plan-list">
+        <article class="plan-card plan-card--featured" aria-labelledby="plan-unlimited">
+          <h2 class="plan-card__name" id="plan-unlimited">Безлимит</h2>
+          <p class="plan-card__price">499 ₽<span class="plan-card__period">/ мес</span></p>
+          <div class="plan-card__purchase">
+            <button class="button button--primary button--block" type="button" data-plan="Безлимит" data-amount="499" data-amount-label="499 ₽/ мес">Оформить подписку на месяц</button>
+            <ul class="plan-benefits">
+              <li class="plan-benefits__item">Любые бренды и сферы без лимита</li>
+              <li class="plan-benefits__item">Прямой перевод, адаптация и вариант по звучанию</li>
+              <li class="plan-benefits__item">Избранное в «Моих брендах»</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="plan-card" aria-labelledby="plan-single">
+          <h2 class="plan-card__name" id="plan-single">Один запрос</h2>
+          <p class="plan-card__price">99 ₽</p>
+          <div class="plan-card__purchase">
+            <button class="button button--muted button--block" type="button" data-plan="Один запрос" data-amount="99" data-amount-label="99 ₽">Оформить разовую подписку</button>
+            <ul class="plan-benefits">
+              <li class="plan-benefits__item">Один запрос по подписке</li>
+              <li class="plan-benefits__item">Прямой перевод, адаптация и вариант по звучанию</li>
+              <li class="plan-benefits__item">Для тех, кому нужно одно название</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+      </div>
+    </section>
+
+    <!-- Экран «Переводчик» -->
+    <section class="screen translator translator--app" id="app" data-screen="app" aria-label="Переводчик" hidden>
+    <aside class="request-sidebar" id="request-sidebar" aria-label="История запросов">
+      <button class="new-request" type="button" data-new-request>
+        <span class="new-request__icon"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" fill="currentColor"/></svg></span>
+        Новый запрос
+      </button>
+      <nav class="request-history" aria-labelledby="recent-title">
+        <h2 class="request-history__title" id="recent-title">Недавние</h2>
+        <ul class="request-history__list" data-history></ul>
+      </nav>
+      <nav class="request-history" aria-labelledby="favorites-title">
+        <h2 class="request-history__title" id="favorites-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          Мои бренды
+        </h2>
+        <ul class="request-history__list" data-favorites></ul>
+      </nav>
+    </aside>
+
+    <div class="translator__workspace">
+        <button class="sidebar-toggle" type="button" aria-controls="request-sidebar" aria-expanded="false" data-sidebar-toggle>
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h10v2H4z" fill="currentColor"/></svg>
+          Мои запросы
+        </button>
+
+        <ol class="wizard-steps" aria-label="Шаги подбора названия">
+          <li class="wizard-step" data-step="1">Бренд</li>
+          <li class="wizard-step" data-step="2">Сфера</li>
+          <li class="wizard-step" data-step="3">Результат</li>
+        </ol>
+
+        <!-- Сюда скрипт выводит текущее состояние диалога -->
+        <div class="chat" data-chat aria-live="polite"></div>
+
+        <div class="composer" data-composer>
+          <div class="composer__alert" data-alert></div>
+          <form class="prompt-form" id="request" aria-label="Сообщение для переводчика">
+            <div class="prompt-form__body">
+              <label class="visually-hidden" for="prompt-input" data-prompt-label>Название бренда</label>
+              <textarea class="prompt-form__input" id="prompt-input" name="prompt" rows="1" autocomplete="off"></textarea>
+              <div class="sphere-chips" data-chips hidden>
+                <button class="sphere-chip" type="button">Technology</button>
+                <button class="sphere-chip" type="button">Fashion</button>
+                <button class="sphere-chip" type="button">Food</button>
+                <button class="sphere-chip" type="button">Health</button>
+                <button class="sphere-chip" type="button">Retail &amp; Services</button>
+              </div>
+            </div>
+            <div class="prompt-form__action" data-tip-anchor="stop">
+              <button class="prompt-form__submit" type="submit" aria-label="Отправить" data-submit>
+                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 7.8V20h-2V7.8l-5.4 5.4-1.4-1.4L12 4l7.8 7.8-1.4 1.4z" fill="currentColor"/></svg>
+              </button>
+              <button class="prompt-form__submit prompt-form__submit--stop" type="button" aria-label="Остановить генерацию" data-stop hidden>
+                <span class="prompt-form__stop-icon" aria-hidden="true"></span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <h2 class="site-footer__title">О проекте</h2>
+      <p class="site-footer__grant">Проект реализован при поддержке Фонда содействия инновациям в рамках программы «Студенческий стартап» мероприятия «Платформа университетского технологического предпринимательства» федерального проекта «Технологии»</p>
+      <ul class="partner-logos" aria-label="Партнёры">
+        <li><img class="partner-logo" src="img/logo-fund.png" width="99" height="56" alt="Фонд содействия инновациям" loading="lazy"></li>
+        <li><img class="partner-logo" src="img/logo-platform.png" width="106" height="83" alt="Платформа университетского технологического предпринимательства" loading="lazy"></li>
+      </ul>
+      <address class="site-footer__contacts">
+        <span class="site-footer__email">alina1029352905290529@yandex.mail.ru</span>
+        <a class="site-footer__policy" href="#policy">Политика обработки персональных данных</a>
+      </address>
+    </div>
+  </footer>
+
+  <!-- Модалка регистрации / входа -->
+  <dialog class="modal" id="auth-dialog" aria-labelledby="auth-title">
+    <form class="auth-form" data-mode="register" novalidate>
+      <h2 class="auth-form__title" id="auth-title" data-auth-text-register="Создать аккаунт" data-auth-text-login="Войти в аккаунт">Создать аккаунт</h2>
+      <div class="auth-form__fields">
+        <div class="form-field">
+          <label class="form-field__label" for="auth-email">Email</label>
+          <div class="input-group">
+            <svg class="input-group__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm17 4.2l-8 7.2-8-7.2V18h16zM4.5 6l7.5 6.7L19.5 6z" fill="currentColor"/></svg>
+            <input class="input-group__control" id="auth-email" name="email" type="email" autocomplete="email" placeholder="Введите email-адрес" required>
+          </div>
+          <p class="form-field__error" data-error="email" hidden>Введите email в формате name@mail.ru</p>
+        </div>
+        <div class="form-field">
+          <label class="form-field__label" for="auth-password">Пароль</label>
+          <div class="input-group">
+            <svg class="input-group__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8V7a6 6 0 1 1 12 0v1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1zm13 2H5v10h14zm-8 4h2v4h-2zm5-6V7a4 4 0 1 0-8 0v1z" fill="currentColor"/></svg>
+            <input class="input-group__control" id="auth-password" name="password" type="password" autocomplete="new-password" placeholder="Введите пароль" required>
+            <button class="input-group__action" type="button" aria-label="Показать пароль" aria-pressed="false" data-toggle-password>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c5.4 0 9.9 3.9 10.8 9-1 5.1-5.4 9-10.8 9S2.1 17.1 1.2 12C2.1 6.9 6.6 3 12 3zm0 16a9 9 0 0 0 8.8-7 9 9 0 0 0-17.6 0A9 9 0 0 0 12 19zm0-2.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm0-2a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" fill="currentColor"/></svg>
+            </button>
+          </div>
+          <p class="form-hint" data-auth-only="register" data-password-hint>
+            <svg class="form-hint__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm-1-7v2h2v-2zm0-8v6h2V7z" fill="currentColor"/></svg>
+            Минимум 8 символов, хотя бы одна цифра
+          </p>
+          <a class="form-hint form-hint--link" href="#about" data-auth-only="login" data-forgot hidden>
+            <svg class="form-hint__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm-1-7v2h2v-2zm2-1.6A3.5 3.5 0 1 0 8.6 9.6l2 .4A1.5 1.5 0 1 1 12 12a1 1 0 0 0-1 1v1.5h2z" fill="currentColor"/></svg>
+            Забыли пароль?
+          </a>
+        </div>
+      </div>
+      <div class="auth-form__actions">
+        <button class="button button--primary button--compact" type="submit" data-auth-text-register="Создать аккаунт" data-auth-text-login="Войти в аккаунт">Создать аккаунт</button>
+        <p class="auth-form__switch">
+          <span data-auth-only="register">Уже есть аккаунт? <button class="text-button" type="button" data-auth-switch="login">Войти</button></span>
+          <span data-auth-only="login" hidden>Нет аккаунта? <button class="text-button" type="button" data-auth-switch="register">Создать</button></span>
+        </p>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Модалка оплаты -->
+  <dialog class="modal" id="payment-dialog" aria-labelledby="payment-title">
+    <div class="payment-card">
+      <h2 class="payment-card__title" id="payment-title">Оплата</h2>
+      <p class="payment-card__summary">
+        <span class="payment-card__plan" data-payment-plan>Безлимит</span>
+        <span class="payment-card__amount" data-payment-amount>499 ₽/ мес</span>
+      </p>
+      <form class="payment-form" novalidate>
+        <div class="payment-form__fields">
+          <label class="payment-form__field--wide">
+            <span class="visually-hidden">Номер карты</span>
+            <input class="text-field" id="card-number" name="card-number" inputmode="numeric" autocomplete="cc-number" placeholder="Номер карты" maxlength="19">
+          </label>
+          <label>
+            <span class="visually-hidden">Срок действия</span>
+            <input class="text-field" id="card-expiry" name="card-expiry" inputmode="numeric" autocomplete="cc-exp" placeholder="ММ/ГГ" maxlength="5">
+          </label>
+          <label>
+            <span class="visually-hidden">Код CVC/CVV</span>
+            <input class="text-field" id="card-cvc" name="card-cvc" inputmode="numeric" autocomplete="cc-csc" placeholder="CVC/CVV" maxlength="3">
+          </label>
+          <p class="payment-form__error" data-payment-error hidden>Проверьте, верно ли введён номер карты</p>
+        </div>
+        <button class="button button--primary button--block" type="submit" data-payment-submit>Оплатить 499 ₽</button>
+      </form>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+  <script src="translator.js"></script>
+</body>
+</html>
