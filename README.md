@@ -1,10 +1,8 @@
-# China Brand — веб-приложение на HTML, CSS и JavaScript
-
+# China Brand 
 Сервис, в котором нейросеть подбирает китайское название бренда с учётом сферы и звучания.
 
-* Сайт (GitHub Pages): https://nwstcy.github.io/-HTML-CSS/
-* Макеты в Figma: https://www.figma.com/design/JzspwWC8DtlXL5VBVnYkLU/%D0%B4%D1%80%D0%B0%D1%84%D1%82%D1%8B?node-id=18637-66
-
+* Сайт (GitHub Pages): [https://nwstcy.github.io/-HTML-CSS/](https://nwstcy.github.io/-HTML-CSS/)
+* 
 ## Что умеет приложение
 
 * Переводчик: ввод бренда → выбор сферы → проверка данных → генерация → результат
@@ -36,24 +34,3 @@ js/
   chat.js         — экраны переводчика
 .nojekyll         — отключает сборку Jekyll на GitHub Pages
 ```
-
-## ДЗ №2. JavaScript — как выполнены критерии
-
-* **Динамическое создание и изменение DOM.** Сообщения диалога, сетка сфер, результат, списки истории, подсказки и уведомления создаются из JS (`createElement`, `append`, `replaceChildren`, `innerHTML`) и меняются через `classList`, `hidden`, `dataset`.
-* **Данные в JS-структурах.** Дерево сфер — массив объектов `SPHERES`; известные бренды и иероглифы — объекты `KNOWN`, `MEANINGS`, `SYLLABLES`; состояние — объект `state`, история — массив запросов `state.sessions`. Списки «Недавние» и «Мои бренды» каждый раз строятся из этого массива.
-* **Обработка событий.** `submit` формы ввода, `input` при наборе текста, `click` (через делегирование по `data-action`), `keydown` (Esc), `animationend`.
-* **ES-модули.** Код разделён на 10 модулей с `import`/`export`, подключение — `<script type="module" src="js/main.js">`.
-* **Без ошибок в консоли.** Весь сценарий проверен в браузере.
-
-## Вёрстка (ДЗ №1)
-
-* семантические теги: `header`, `nav`, `main`, `section`, `article`, `aside`, `footer`, `form`, списки `ol`/`ul`
-* CSS-переменные для цветов, шрифтов, кеглей, радиусов, размеров и длительности анимаций
-* стили задаются классами, классы названы по смыслу (BEM): `sidebar`, `history__item`, `sphere-picker`, `sphere-chip`, `composer`, `adaptation`, `tooltip`, `alert--limit`
-* раскладка на `display: flex` и `display: grid`
-* адаптив под десктоп, планшет и мобильные (≤1100, ≤900, ≤760, ≤480px)
-* анимации переходов, как в ИИ-сервисах; при настройке «уменьшить движение» они отключаются
-
-## Запуск локально
-
-ES-модули не работают, если открыть `index.html` двойным щелчком. Запустите локальный сервер в папке проекта, например `python -m http.server`, и откройте http://localhost:8000, или используйте расширение Live Server в VS Code.
