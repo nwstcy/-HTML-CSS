@@ -19,6 +19,12 @@ export function createSession() {
   return { id: ++uid, brand: '', sphere: '', sphereGroup: null, result: null, seed: 0, liked: false, inRecent: false };
 }
 
+/* Восстанавливает историю из хранилища и продолжает нумерацию запросов */
+export function restoreSessions(list) {
+  state.sessions = list;
+  uid = list.reduce((max, s) => Math.max(max, s.id), 0);
+}
+
 export function findSession(id) {
   return state.sessions.find(s => s.id === id);
 }

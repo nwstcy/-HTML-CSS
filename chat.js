@@ -1,12 +1,14 @@
 /* Экраны переводчика: бренд → сфера → проверка → генерация → результат, ошибки и история. */
 import { FREE_LIMIT, TYPE_DELAY } from './data.js';
 import { generate, canProcess } from './generator.js';
-import { state, createSession, findSession, removeSession, markSeen, findGroup } from './state.js';
+import { state, createSession, findSession, removeSession, restoreSessions, markSeen, findGroup } from './state.js';
 import { el, esc, icon, words, hanzi, appendMessage, scrollToNode, scrollToEnd, transition, removeAnimated } from './dom.js';
 import { showTip, closeTip, removeAllTips, showAlert, clearAlert, toast, openModal, closeDrawer, copyText } from './ui.js';
 import { setStep, setInput, focusInput } from './composer.js';
 import { renderPicker } from './picker.js';
 import { renderHistory } from './sidebar.js';
+import { speechAvailable, silence, cancelListening } from './voice.js';
+import { loadHistory } from './storage.js';
 
 /* ---------- Экран 1: приветствие ---------- */
 function renderIntro() {
@@ -32,6 +34,7 @@ function renderIntro() {
 
 export function startNew({ prefill = '' } = {}) {
   clearTimeout(state.busyTimer);
+  silence();
   transition(() => {
     state.current = createSession();
     state.picker = { path: [], selected: null };
@@ -49,6 +52,7 @@ export function startNew({ prefill = '' } = {}) {
 
 /* Первый экран без анимации перехода */
 export function initChat() {
+  restoreSessions(loadHistory());
   state.current = createSession();
   renderIntro();
   setStep('brand');
@@ -172,6 +176,8 @@ export function generateResult() {
   removeAllTips();
   markSeen('confirm');
   clearAlert();
+  silence();
+  cancelListening();
 
   transition(() => {
     el.dialog.replaceChildren();
@@ -214,11 +220,22 @@ function likeButton(session) {
   return `<button class="tool-button${session.liked ? ' tool-button--liked' : ''}" type="button" data-action="like" aria-pressed="${session.liked}" aria-label="${label}">${icon(session.liked ? 'heart-fill' : 'heart')}</button>`;
 }
 
+/* Кнопка «Послушать произношение» (Web Speech API, синтез речи) */
+function speakButton(text, delay) {
+  const unavailable = !speechAvailable();
+  return `<button class="speak-button${unavailable ? ' speak-button--unavailable' : ''}" type="button" data-action="speak" data-text="${esc(text)}"
+    aria-label="Послушать произношение ${esc(text)}" aria-pressed="false" ${unavailable ? 'aria-disabled="true" title="Озвучка не поддерживается в этом браузере"' : 'title="Послушать произношение"'}
+    style="--d:${delay + 300}ms">${icon('volume')}<span class="speak-button__wave" aria-hidden="true"></span></button>`;
+}
+
 function variantHtml(label, data, delay, withTools, session) {
   return `<section class="variant">
       <h3 class="variant__label">${label}</h3>
       <div class="variant__body">
-        <p class="variant__hanzi" lang="zh-Hans" aria-label="${esc(data.hanzi)}">${hanzi(data.hanzi, delay)}</p>
+        <div class="variant__hanzi-row">
+          <p class="variant__hanzi" lang="zh-Hans" aria-label="${esc(data.hanzi)}">${hanzi(data.hanzi, delay)}</p>
+          ${speakButton(data.hanzi, delay)}
+        </div>
         <div class="variant__texts">
           <p class="variant__pinyin">${words(data.pinyin, delay + 250)}</p>
           <p class="variant__meaning">${words(data.text, delay + 350)}</p>
@@ -276,6 +293,7 @@ export function openSession(id) {
   const session = findSession(id);
   if (!session) return;
   clearTimeout(state.busyTimer);
+  silence();
   closeDrawer();
   transition(() => {
     state.current = session;
