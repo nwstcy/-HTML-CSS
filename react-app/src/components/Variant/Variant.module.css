@@ -1,0 +1,38 @@
+.variant { display: flex; flex-direction: column; gap: 12px; }
+
+.label {
+  margin: 0;
+  font-size: var(--text-base);
+  font-weight: 600;
+  line-height: 28px;
+  color: var(--color-text-strong);
+}
+
+.body { display: flex; flex-direction: column; gap: 8px; }
+.hanziRow { display: flex; align-items: center; gap: 12px; }
+.texts { display: flex; flex-direction: column; gap: 4px; }
+
+.hanzi {
+  margin: 0;
+  font-family: var(--font-hanzi);
+  font-size: var(--text-hanzi);
+  font-weight: 500;
+  line-height: 36px;
+  color: var(--color-text);
+}
+
+.pinyin {
+  margin: 0;
+  font-size: var(--text-base);
+  line-height: 20px;
+  color: var(--color-text-muted);
+}
+
+.meaning {
+  margin: 0;
+  max-width: 724px;
+  font-family: var(--font-hanzi);
+  font-size: var(--text-base);
+  line-height: 20px;
+  color: var(--color-text-muted);
+}

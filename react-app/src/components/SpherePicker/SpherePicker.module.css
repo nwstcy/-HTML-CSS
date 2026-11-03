@@ -1,0 +1,106 @@
+.picker {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.head { display: flex; flex-direction: column; gap: 16px; }
+
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-sm);
+  line-height: 16px;
+  color: var(--color-text-faint);
+}
+
+.crumb { display: flex; align-items: center; gap: 4px; }
+.crumbIcon { color: var(--color-text-muted); }
+.crumbLink { color: inherit; }
+.crumbLink:hover { color: var(--color-text-strong); }
+
+.title {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--color-text-strong);
+}
+
+.back { align-self: flex-start; margin-block: -8px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 233px));
+  grid-template-rows: repeat(var(--rows, 7), auto);
+  grid-auto-flow: column;
+  justify-content: space-between;
+  align-items: start;
+  gap: 4px 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gridForward { animation: level-forward var(--duration) var(--ease-out) both; }
+.gridBack { animation: level-back var(--duration) var(--ease-out) both; }
+
+.chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  width: 100%;
+  min-height: 36px;
+  padding: 8px 12px;
+  background: var(--color-surface);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  line-height: 18px;
+  text-align: left;
+  color: var(--color-text-strong);
+  animation: chip-in var(--duration) var(--ease-out) both;
+  transition: background-color var(--duration-fast), border-color var(--duration-fast), color var(--duration-fast);
+}
+
+.chip:hover { border-color: var(--color-text-strong); }
+.chipIcon { width: 20px; height: 20px; color: var(--color-text-strong); }
+
+.selected {
+  background: var(--color-primary);
+  color: var(--color-inverse);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-flow: row;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+@keyframes chip-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes level-forward {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes level-back {
+  from { opacity: 0; transform: translateX(-24px); }
+  to { opacity: 1; transform: none; }
+}

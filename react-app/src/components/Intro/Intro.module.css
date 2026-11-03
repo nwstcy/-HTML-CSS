@@ -1,0 +1,26 @@
+/* сворачивание описания: анимация высоты через grid-template-rows */
+.about {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows var(--duration-slow) var(--ease-out), opacity var(--duration) ease;
+}
+
+.aboutInner { min-height: 0; overflow: hidden; }
+
+.collapsed { grid-template-rows: 0fr; opacity: 0; }
+
+.intro { display: flex; flex-direction: column; gap: 8px; padding-bottom: 24px; }
+.block { display: flex; flex-direction: column; gap: 4px; }
+
+.text {
+  margin: 0;
+  font-size: var(--text-base);
+  line-height: 24px;
+  color: var(--color-text);
+}
+
+.lead { font-weight: 600; }
+
+.steps { margin: 0; padding: 0; list-style: none; counter-reset: step; }
+.steps li { counter-increment: step; }
+.steps li::before { content: counter(step) ". "; }

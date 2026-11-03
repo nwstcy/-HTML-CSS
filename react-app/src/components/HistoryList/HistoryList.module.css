@@ -1,0 +1,71 @@
+.group { display: flex; flex-direction: column; gap: 12px; }
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-text-muted);
+}
+
+.titleIcon { color: var(--color-icon-tool); }
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--duration-fast);
+  animation: item-in var(--duration) var(--ease-out) both;
+}
+
+.item:hover,
+.active { background: var(--color-surface-strong); }
+
+.link {
+  flex: 1;
+  min-width: 0;
+  padding: 8px;
+  text-align: left;
+  font-size: var(--text-base);
+  line-height: 20px;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* корзина появляется только при наведении */
+.delete {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  color: var(--color-text-muted);
+  opacity: 0;
+  transition: opacity var(--duration-fast), color var(--duration-fast);
+}
+
+.item:hover .delete,
+.delete:focus-visible { opacity: 1; }
+
+.delete:hover { color: var(--color-text); }
+
+@keyframes item-in {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: none; }
+}

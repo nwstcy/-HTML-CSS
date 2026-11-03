@@ -1,0 +1,13 @@
+.toolButton {
+  position: relative;
+  display: grid;
+  place-items: center;
+  color: var(--color-icon-soft);
+  border-radius: 4px;
+  transition: color var(--duration-fast), transform var(--duration-fast) var(--ease-out);
+}
+
+/* зона нажатия больше самой иконки */
+.toolButton::before { content: ""; position: absolute; inset: -6px; }
+.toolButton:hover { color: var(--color-text); }
+.toolButton:active { transform: scale(.85); }

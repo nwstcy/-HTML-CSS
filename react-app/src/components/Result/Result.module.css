@@ -1,0 +1,48 @@
+.result { display: flex; flex-direction: column; gap: 24px; }
+
+.title {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--color-text-strong);
+}
+
+.variants { display: flex; flex-direction: column; gap: 16px; }
+
+.tools { gap: 4px; margin-top: 8px; }
+
+/* иконки, подсказка и отзыв идут друг под другом — подсказка ничего не перекрывает */
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* .tools повышает специфичность над базовым стилем ToolButton */
+.tools .tool { color: var(--color-text-muted); }
+.tools .tool:hover { color: var(--color-text); }
+
+.tools .like { color: var(--color-icon-tool); }
+.tools .like:hover { color: var(--color-text); }
+
+/* сохранённое сердечко заливается серым, как в макете */
+.tools .liked,
+.tools .liked:hover {
+  color: var(--color-icon-saved);
+  animation: heart-pop .45s var(--ease-spring);
+}
+
+.spin svg { animation: spin .6s var(--ease-out); }
+
+/* подсказка в потоке страницы (не поверх), хвостик указывает на сердечко */
+.actions .tip { position: relative; margin-top: 4px; margin-left: -9px; }
+
+@keyframes heart-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

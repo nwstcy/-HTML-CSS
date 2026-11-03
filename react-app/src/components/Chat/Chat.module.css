@@ -1,0 +1,64 @@
+.chat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+.scroll {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  padding-top: var(--chat-top);
+  padding-bottom: 24px;
+}
+
+.column {
+  width: 100%;
+  max-width: calc(var(--column-width) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* смена экрана: весь диалог проявляется заново */
+.dialog {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: screen-in .5s var(--ease-out) both;
+}
+
+.bottom { display: flex; flex-direction: column; }
+
+.applyBar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+  animation: fade-up var(--duration) var(--ease-out) both;
+}
+
+.editTip { top: calc(100% + 12px); right: -12px; }
+
+@media (max-width: 760px) {
+  .column {
+    padding-left: max(var(--gutter), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
+  }
+
+  .bottom { padding-bottom: env(safe-area-inset-bottom, 0px); }
+}
+
+@keyframes screen-in {
+  from { opacity: 0; transform: translateY(14px); filter: blur(8px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}

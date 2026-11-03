@@ -1,0 +1,47 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  margin: -12px 0 0;
+  font-size: var(--text-md);
+  line-height: 20px;
+  color: var(--color-text-muted);
+  animation: fade-in var(--duration) ease both;
+}
+
+.label { color: var(--color-text-muted); }
+
+.value {
+  font-family: var(--font-hanzi);
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--color-text);
+  animation: fade-in var(--duration) ease both;
+}
+
+/* переливающийся текст, пока ждём ответ сервера */
+.loading {
+  color: transparent;
+  background: linear-gradient(100deg, var(--color-text-muted) 0%, var(--color-text-muted) 40%, var(--color-border-strong) 50%, var(--color-text-muted) 60%, var(--color-text-muted) 100%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 1.8s linear infinite;
+}
+
+.error { color: var(--color-error-ink); }
+
+.retry {
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@keyframes fade-in { from { opacity: 0; } }
+
+@keyframes shimmer {
+  from { background-position: 100% 0; }
+  to { background-position: -150% 0; }
+}
