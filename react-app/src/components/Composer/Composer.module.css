@@ -1,0 +1,113 @@
+.composer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-block: 12px var(--composer-bottom);
+  padding: 8px 11px 8px 24px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--duration-fast);
+}
+
+.composer:focus-within { border-color: var(--color-border-strong); }
+
+.visuallyHidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: none;
+  font-size: var(--text-base);
+  line-height: 20px;
+  color: var(--color-text);
+}
+
+.input::placeholder { color: var(--color-text-muted); opacity: 1; }
+.listening .input::placeholder { color: var(--color-text-strong); }
+
+/* кнопка отправки: серая стрелка, тёмная — когда есть текст */
+.send {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border-radius: 18px;
+  background: var(--color-surface);
+  color: var(--color-icon-soft);
+  transition: color var(--duration-fast), transform var(--duration-fast) var(--ease-out);
+}
+
+.send:active { transform: scale(.92); }
+.ready .send { color: var(--color-text); }
+
+/* стрелка превращается в «стоп» во время генерации */
+.arrow,
+.stop { grid-area: 1 / 1; transition: transform var(--duration) var(--ease-spring), opacity var(--duration-fast); }
+
+.stop {
+  width: 16px;
+  height: 16px;
+  border-radius: 5px;
+  background: var(--color-stop);
+  transform: scale(0);
+  opacity: 0;
+}
+
+.busy .arrow { transform: translateY(-14px) scale(.4); opacity: 0; }
+.busy .stop { transform: none; opacity: 1; }
+
+.stopTip { right: -48px; bottom: calc(100% + 10px); pointer-events: none; }
+
+/* микрофон (Web Speech API) */
+.mic {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border-radius: 18px;
+  color: var(--color-icon-soft);
+  transition: color var(--duration-fast), background-color var(--duration-fast);
+}
+
+.mic:hover { color: var(--color-text); background: var(--color-surface); }
+
+.mic::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid var(--color-primary);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.listening .mic { background: var(--color-primary); color: var(--color-inverse); }
+.listening .mic::after { animation: ring 1.4s var(--ease-out) infinite; }
+
+.mic:disabled { opacity: .4; pointer-events: none; }
+
+.micUnavailable,
+.micUnavailable:hover { opacity: .45; cursor: not-allowed; background: none; color: var(--color-icon-soft); }
+
+@media (max-width: 760px) {
+  .composer { padding-left: 16px; }
+  .stopTip { right: -8px; }
+}
+
+@keyframes ring {
+  0% { opacity: .5; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.5); }
+}

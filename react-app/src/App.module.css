@@ -1,0 +1,10 @@
+/* Каркас: боковая панель + диалог; на телефоне панель выезжает поверх */
+.app {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  height: 100%;
+}
+
+@media (max-width: 760px) {
+  .app { grid-template-columns: minmax(0, 1fr); }
+}

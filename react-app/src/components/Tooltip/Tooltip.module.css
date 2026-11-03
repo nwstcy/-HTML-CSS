@@ -1,0 +1,57 @@
+.tooltip {
+  position: absolute;
+  z-index: 20;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: max-content;
+  max-width: min(302px, calc(100vw - 32px));
+  padding: 12px;
+  background: var(--color-tooltip);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  color: var(--color-inverse);
+  font-family: var(--font-hint);
+  font-size: var(--text-base);
+  line-height: 16px;
+  animation: tooltip-in .5s var(--ease-out) both;
+}
+
+/* хвостик */
+.tooltip::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--color-tooltip);
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+
+.below::after { top: -5px; }
+.above::after { bottom: -5px; }
+.tail-left::after { left: 15px; }
+.tail-right::after { right: 16px; }
+
+/* крестик 24×24, зона нажатия расширена до 44×44 */
+.close {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  flex: none;
+  padding: 2px;
+  margin: -4px -4px -4px 0;
+  border-radius: var(--radius-xs);
+  color: var(--color-inverse);
+  transition: background-color var(--duration-fast);
+}
+
+.close::before { content: ""; position: absolute; inset: -10px; }
+.close:hover { background: rgba(255, 255, 255, .14); }
+
+@keyframes tooltip-in {
+  from { opacity: 0; transform: translateY(6px) scale(.97); }
+  to { opacity: 1; transform: none; }
+}

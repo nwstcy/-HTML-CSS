@@ -1,0 +1,9 @@
+.brief {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 36px;
+}
+
+.tip { top: calc(100% + 12px); left: 0; }

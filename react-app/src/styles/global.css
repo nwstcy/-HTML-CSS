@@ -1,0 +1,133 @@
+/* Глобальные стили: дизайн-токены из макета, сброс и адаптивные значения токенов.
+   Стили компонентов лежат рядом с ними в *.module.css. */
+
+:root {
+  /* Цвета из макета */
+  --color-bg: #ffffff;
+  --color-surface: #f7f7f7;
+  --color-surface-strong: #e9e9e9;
+  --color-border: #e9e9e9;
+  --color-border-strong: #e2e4e9;
+  --color-text: #0a0d14;
+  --color-text-strong: #000000;
+  --color-text-muted: #5e5e5e;
+  --color-text-faint: rgba(0, 0, 0, .6);
+  --color-icon-soft: #868c98;
+  --color-icon-tool: #5a5a5a;
+  --color-icon-saved: #959595;
+  --color-inverse: #ffffff;
+  --color-primary: #000000;
+  --color-primary-hover: #262a33;
+  --color-tooltip: #0a0d14;
+  --color-stop: #313131;
+  --color-plan: #fbac9b;
+  --color-plan-ink: #4d0000;
+  --color-danger: #d80027;
+  --color-error-bg: #f8c9d2;
+  --color-error-ink: #710e21;
+  --color-error-icon: #e93535;
+  --color-error-link: #6e330c;
+  --color-warning-bg: #ffd7c2;
+  --color-warning-ink: #4d0000;
+  --color-avatar: #e2e4e9;
+  --color-overlay: rgba(10, 13, 20, .32);
+  --color-shimmer: #b9b9b9;
+
+  /* Шрифты */
+  --font-logo: "PT Sans Caption", "PT Sans", "Trebuchet MS", sans-serif;
+  --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-hint: "PT Sans", "Inter", system-ui, sans-serif;
+  --font-hanzi: "Noto Serif JP", "Noto Serif SC", "Songti SC", "SimSun", serif;
+
+  /* Типографическая шкала (px как в макете) */
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-md: 14px;
+  --text-base: 16px;
+  --text-lg: 20px;
+  --text-logo: 24px;
+  --text-hanzi: 32px;
+
+  /* Радиусы */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-alert: 40px;
+  --radius-pill: 100px;
+
+  /* Размеры */
+  --sidebar-width: 280px;
+  --sidebar-padding: 24px;
+  --column-width: 724px;
+  --gutter: 24px;
+  --chat-top: 48px;
+  --composer-bottom: 24px;
+
+  /* Движение */
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+  --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+  --duration-fast: .18s;
+  --duration: .35s;
+  --duration-slow: .6s;
+
+  --shadow-pop: 0 16px 40px -12px rgba(10, 13, 20, .22), 0 2px 6px rgba(10, 13, 20, .06);
+}
+
+/* ---------- База ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html,
+body,
+#root { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+button,
+input { font: inherit; color: inherit; }
+
+button { cursor: pointer; background: none; border: 0; padding: 0; }
+
+/* :where() — нулевая специфичность, чтобы модули компонентов могли переопределить фокус */
+:where(:focus-visible) { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+
+/* ---------- Адаптивные значения токенов ---------- */
+@media (max-width: 1100px) {
+  :root { --sidebar-width: 248px; --sidebar-padding: 20px; --chat-top: 40px; }
+}
+
+@media (max-width: 900px) {
+  :root { --gutter: 20px; }
+}
+
+@media (max-width: 760px) {
+  :root { --gutter: 16px; --chat-top: 24px; --composer-bottom: 12px; }
+}
+
+@media (max-width: 480px) {
+  :root { --text-hanzi: 30px; --text-lg: 18px; }
+}
+
+/* Уважение к настройке «уменьшить движение» */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
