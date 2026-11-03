@@ -117,3 +117,14 @@ src/
 ## Публикация на GitHub Pages
 
 Сборку делает GitHub Actions (`.github/workflows/deploy.yml` в корне репозитория): при каждом изменении ветки `main` проект собирается командой `npm run build`, а папка `dist` публикуется на GitHub Pages. В настройках репозитория **Settings → Pages → Source** должно быть выбрано **GitHub Actions**.
+
+## ДЗ №6. Деплой
+
+Приложение развёрнуто на GitHub Pages: https://nwstcy.github.io/-HTML-CSS/
+
+Деплой автоматический через GitHub Actions (`.github/workflows/deploy.yml` в корне репозитория). При каждом push в ветку `main`:
+1. устанавливается Node.js 22;
+2. в папке `react-app` выполняются `npm install` и `npm run build`;
+3. собранная папка `dist` публикуется на GitHub Pages.
+
+История деплоев — вкладка Actions. В `vite.config.js` указан `base: './'`, чтобы сайт работал в подпапке `/-HTML-CSS/`.
