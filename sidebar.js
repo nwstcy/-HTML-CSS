@@ -1,6 +1,10 @@
 /* Боковая панель: списки «Недавние» и «Мои бренды» строятся из массива state.sessions. */
 import { el, esc, icon } from './dom.js';
 import { state, sessionLabel } from './state.js';
+import { saveHistory } from './storage.js';
+import { toast } from './ui.js';
+
+let storageWarned = false;
 
 function historyItem(session, list, withDelete, shownKeys) {
   const key = `${list}-${session.id}`;
@@ -29,4 +33,10 @@ export function renderHistory() {
   el.recent.hidden = recent.length === 0;
   el.favorites.hidden = liked.length === 0;
   el.sidebar.classList.toggle('sidebar--empty', recent.length === 0 && liked.length === 0);
+
+  // сохраняем историю в localStorage; если браузер не даёт — предупреждаем один раз
+  if (!saveHistory(state.sessions) && !storageWarned) {
+    storageWarned = true;
+    toast('История не сохранится после перезагрузки: браузер запретил хранить данные');
+  }
 }

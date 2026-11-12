@@ -3,6 +3,7 @@ import { el, $ } from './dom.js';
 import { state } from './state.js';
 import { updateReady, takeInput } from './composer.js';
 import { handlePickerClick } from './picker.js';
+import { initVoiceInput, toggleSpeak, cancelListening } from './voice.js';
 import { closeTip, clearAlert, closeModal, openDrawer, closeDrawer } from './ui.js';
 import {
   initChat, startNew, submitBrand, chooseTypedSphere, applySelectedSphere, editSphere,
@@ -19,6 +20,7 @@ el.composer.addEventListener('submit', event => {
     stopGeneration();
     return;
   }
+  cancelListening();
   const text = takeInput();
   if (!text) {
     el.input.focus();
@@ -46,7 +48,8 @@ const dialogActions = {
   'edit-request': () => editSphere(),
   'copy-result': () => copyResult(),
   like: button => toggleLike(button),
-  regenerate: button => regenerate(button)
+  regenerate: button => regenerate(button),
+  speak: button => toggleSpeak(button)
 };
 
 el.dialog.addEventListener('click', event => {
@@ -106,4 +109,5 @@ document.addEventListener('keydown', event => {
 });
 
 /* ---------- Старт ---------- */
+initVoiceInput();
 initChat();
